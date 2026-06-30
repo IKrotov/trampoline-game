@@ -1,0 +1,3 @@
+﻿Build path: D:/unity/trampoline/builds/test
+Build number: 13
+PluginYG version: 2.0092

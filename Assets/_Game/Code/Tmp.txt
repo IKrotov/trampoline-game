@@ -1,0 +1,15 @@
+﻿ Что нужно сделать в Unity Editor
+
+  Что нужно сделать в Unity Editor      
+                                                                                     
+  1. Создать UI-панели в сцене (Canvas):                                                                      
+  - UIEggShop — панель с UIEggCell prefab'ом и контейнером, начально SetActive(false)
+  - UIPlayerPets — панель со ScrollView, Z prefab'ом, TextMeshPro счётчиком, начально SetActive(false)
+  - UIHatchResult — всегда активный объект, внутри дочерний panel (начально выключен)
+  - Кнопки "Яйца" и "Питомцы" на HUD → вызывают UIController.ShowEggShop() / ShowPlayerPets()
+                                        
+  2. PetWorldManager — добавить компонент на GameObject в сцене:                                                                                          
+  - Назначить 3 Transform в Spawn Points
+  - Назначить 9 prefab'ов в Pet Prefabs с ID из кода (pet_hamster, pet_rabbit, pet_guinea, pet_fox, pet_wolf, pet_bear, pet_dragon, pet_phoenix, pet_lion)
+
+  3. UIController — назначить в Inspector _eggShop и _playerPets.

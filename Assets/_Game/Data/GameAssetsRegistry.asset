@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4e5f60a1b2c3d4e5f6a7b8c9d0e1f, type: 3}
+  m_Name: GameAssetsRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Code.Scripts.GameAssetsRegistry
+  PetPrefabs:
+  - PetId: pet_t0_x1.5
+    Prefab: {fileID: 3101205513315446765, guid: f771871a4e0749141bc4802e1f19f934, type: 3}
+  - PetId: pet_t0_x2.5
+    Prefab: {fileID: 357477852415981532, guid: 75bfd205706e899478ce53807e8c62b3, type: 3}
+  - PetId: pet_t0_x4
+    Prefab: {fileID: 1155125367148235790, guid: 979da9d0c8d4c9644b6207e37cb40ded, type: 3}
+  - PetId: pet_t1_x6
+    Prefab: {fileID: 5838267395805884078, guid: 5c4e4533bb3729542a63b8520c1cbfc5, type: 3}
+  - PetId: pet_t1_x10
+    Prefab: {fileID: 3623745478220572161, guid: 9413e48eeccd09c48b411269400b8918, type: 3}
+  - PetId: pet_t1_x18
+    Prefab: {fileID: 5767147367599772806, guid: 6d4ef79e95f45d148ba1cc243eb658a9, type: 3}
+  - PetId: pet_t2_x30
+    Prefab: {fileID: 4905526439385937827, guid: 86b7308e8764ee144a28b0bd66afbeb4, type: 3}
+  - PetId: pet_t2_x55
+    Prefab: {fileID: 3862576061028118297, guid: 10dc217ed92c72a4680c21aebbf574a1, type: 3}
+  - PetId: pet_t2_x100
+    Prefab: {fileID: 5521981471337108473, guid: 16ecada81abf3504ab91e694c742a9f2, type: 3}
+  - PetId: pet_t3_x250
+    Prefab: {fileID: 6471113841692995860, guid: 9e835338ae167b74f890387afa88b08c, type: 3}
+  - PetId: pet_t3_x500
+    Prefab: {fileID: 3749874865616097, guid: f4a0a49f61572b246929d3bc532cbe0e, type: 3}
+  - PetId: pet_t3_x1000
+    Prefab: {fileID: 6157803737879925535, guid: 9aa33f1f7a81ed840be1324e3bbeeb81, type: 3}
+  - PetId: donate_pet_1
+    Prefab: {fileID: 6231241468798942054, guid: bc14d9db5dbc55449b06d50d81410251, type: 3}
+  - PetId: donate_pet_2
+    Prefab: {fileID: 8906096454041519297, guid: 070baab3b60925b4a9e466d457f5e37e, type: 3}
+  - PetId: donate_pet_3
+    Prefab: {fileID: 4635641063661737209, guid: 4088bbc56ff300c42beef625d0bccc37, type: 3}
+  EggPrefabs:
+  - EggId: egg_0
+    Prefab: {fileID: 4007253621819425488, guid: 1e63552e395a58c4eae2a8c57fbca3e9, type: 3}
+  - EggId: egg_1
+    Prefab: {fileID: 8289163963422326694, guid: ea16983607db07b4eb0315b3ceacb7f1, type: 3}
+  - EggId: egg_2
+    Prefab: {fileID: 1826470759983971727, guid: 7fce66be3d1f399478e1e043eb9be8be, type: 3}
+  - EggId: egg_3
+    Prefab: {fileID: 833148594226887132, guid: 0943abedf5977cd4187a5f29b18e0ffd, type: 3}
+  TrampolinePrefabs:
+  - Level: 0
+    Prefab: {fileID: 4548882328999903848, guid: 24469cd7cf3fd4340a30c7d6a16fa6bd, type: 3}
+  - Level: 1
+    Prefab: {fileID: 8434010718257067925, guid: 48675238eb4f5f643a24e2be1596c01c, type: 3}
+  - Level: 2
+    Prefab: {fileID: 776443404378845536, guid: b594f10c0547ef44d88693bfd9429b89, type: 3}
+  - Level: 3
+    Prefab: {fileID: 171595340583058269, guid: 746b719ae233a184e9b9de6f928e8737, type: 3}
+  - Level: 4
+    Prefab: {fileID: 8404618640997167163, guid: 95203e1664b83394baafb5fbd840eee8, type: 3}
+  - Level: 5
+    Prefab: {fileID: 7181922484624713733, guid: 6cc4824f31a14f34fbb5a8c9d0d9921b, type: 3}
+  - Level: 6
+    Prefab: {fileID: 4501730285338804918, guid: cbedf8e830beb61468cb9be4fe3f14c8, type: 3}
+  - Level: 7
+    Prefab: {fileID: 2676702199265752714, guid: 311ed5fd7b58cbb4ca938fd2fbc95dbc, type: 3}
+  - Level: 8
+    Prefab: {fileID: 6341165793852013423, guid: 6b1582b698a608848beffc0f5be3fac9, type: 3}
+  - Level: 9
+    Prefab: {fileID: 5091666976836557830, guid: 14afb471a4f02d04181b293befc79f04, type: 3}
+  WingsPrefabs:
+  - Level: 1
+    Prefab: {fileID: 7135544060241765091, guid: d4bbda0fe114bba4fbb4aa4e66d5aa75, type: 3}
+  - Level: 2
+    Prefab: {fileID: 7135544060241765091, guid: 83ef8a3ee037cd642a0843fade9b175f, type: 3}
+  - Level: 3
+    Prefab: {fileID: 1889236917263102716, guid: f2e76ec677a28844f90962de011ffc53, type: 3}
+  - Level: 4
+    Prefab: {fileID: 1838205123412239066, guid: 8e082706de30f4c43a30aa7448c0ae1f, type: 3}
+  - Level: 5
+    Prefab: {fileID: 6829955612852508006, guid: 3961380f86fdcf541a032c4ed044eb53, type: 3}
+  - Level: 6
+    Prefab: {fileID: 5592192314166298356, guid: 920b9ed425e125b4298c7108eddeea78, type: 3}
+  - Level: 7
+    Prefab: {fileID: 5623197435327759032, guid: 30dfc046a3287e44aa6b0dc3d5de7164, type: 3}
+  - Level: 8
+    Prefab: {fileID: 5770811716285112692, guid: ce36ccdf4b6bdd44f889272af6158156, type: 3}
+  - Level: 9
+    Prefab: {fileID: 4374914705612317071, guid: 6144919a50cc23d4aa362145021ace3a, type: 3}
+  - Level: 10
+    Prefab: {fileID: 4121394910238095007, guid: dfb7ffb55b0d8c8469e39ae5f3f5ec16, type: 3}
+  - Level: 11
+    Prefab: {fileID: 568719261901523087, guid: 70100c50e07b7f14d9f46ee72d098ff5, type: 3}
