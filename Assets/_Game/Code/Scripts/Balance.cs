@@ -4,7 +4,7 @@ namespace _Game.Code.Scripts
 {
     public static class Balance
     {
-        public const double StartingStrength = 100.0;
+        public const double StartingStrength = 1.0;
         public const long   StartingCoins    = 0;
         public const float  MoneyMultiplier  = 0.32f;
         public const float  GymTickInterval  = 0.3f;
@@ -105,15 +105,11 @@ namespace _Game.Code.Scripts
             },
         };
 
-        // Rebirths: resets Strength and GymLevel, gives +25% to Strength gain per rebirth
+        // Rebirths: resets Strength (and, since GymLevel is derived from Strength, GymLevel too), gives +25% to Strength gain per rebirth
         // RebirthMultiplier = 1 + RebirthCount * 0.25
-        public static readonly long[] RebirthCosts =
-        {
-            250_000, 400_000, 700_000, 1_200_000, 1_900_000,
-            3_000_000, 5_000_000, 8_500_000, 14_000_000, 23_000_000,
-            37_000_000, 62_000_000, 100_000_000, 165_000_000, 270_000_000,
-            450_000_000, 750_000_000, 1_200_000_000, 2_000_000_000, 3_500_000_000L,
-        };
+        // Cost grows exponentially: RebirthBaseCost * RebirthCostMultiplier ^ RebirthCount
+        public const long   RebirthBaseCost       = 250_000;
+        public const double RebirthCostMultiplier = 1.65;
 
         // Donate pets — ProductId must match the product ID registered in the Yandex catalog
         public static readonly DonatePetData[] DonatePets =
@@ -164,6 +160,9 @@ namespace _Game.Code.Scripts
         // Strength per tick = GymPower * PetMultiplier * RebirthMultiplier
         public static double CalcRebirthMultiplier(int rebirthCount)
             => 1.0 + rebirthCount * 0.25;
+
+        public static long CalcRebirthCost(int rebirthCount)
+            => (long)(RebirthBaseCost * Math.Pow(RebirthCostMultiplier, rebirthCount));
 
         // Height = sqrt(strength) * trampolineMultiplier — единая формула для наград, UI и зон
         public static double CalcHeight(double strength, float trampolineMultiplier)

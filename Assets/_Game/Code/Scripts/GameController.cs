@@ -27,6 +27,7 @@ namespace _Game.Code.Scripts
             EventBus.BuyEgg.AddListener(BuyEgg);
             EventBus.ActivatePetRequest.AddListener(ActivatePet);
             EventBus.DeactivatePetRequest.AddListener(DeactivatePet);
+            EventBus.RebirthRequest.AddListener(Rebirth);
             EventBus.SaveLoaded.AddListener(ApplyTrampolineModel);
         }
 
@@ -100,6 +101,8 @@ namespace _Game.Code.Scripts
             pet.IsActive = false;
             EventBus.RaisePetDeactivated(pet);
         }
+
+        private void Rebirth() => GameState.TryRebirth();
 
         public void EnterToGym()
         {
@@ -217,6 +220,7 @@ namespace _Game.Code.Scripts
             EventBus.BuyEgg.RemoveListener(BuyEgg);
             EventBus.ActivatePetRequest.RemoveListener(ActivatePet);
             EventBus.DeactivatePetRequest.RemoveListener(DeactivatePet);
+            EventBus.RebirthRequest.RemoveListener(Rebirth);
             EventBus.SaveLoaded.RemoveListener(ApplyTrampolineModel);
         }
     }

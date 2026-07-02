@@ -53,6 +53,7 @@ namespace _Game.Code.Scripts
         {
             Coins += coins;
             EventBus.RaiseCoinsChanged();
+            EventBus.RaiseCoinsEarned();
         }
 
         public static void AddCoinsFromLanding()
@@ -85,6 +86,25 @@ namespace _Game.Code.Scripts
             double petMultiplier = GetPetMultiplier();
             double rebirthMultiplier = Balance.CalcRebirthMultiplier(Restarts);
             AddPower(gymPower * petMultiplier * rebirthMultiplier);
+        }
+
+        // --- Rebirth ---
+
+        public static long GetRebirthCost() => Balance.CalcRebirthCost(Restarts);
+
+        // Resets Strength (GymLevel resets with it, since it's derived from Strength) for a permanent +0.25x power multiplier
+        public static bool TryRebirth()
+        {
+            long cost = GetRebirthCost();
+            if (Coins < cost) return false;
+
+            SpendCoins(cost);
+            Restarts++;
+            Power = Balance.StartingStrength;
+
+            EventBus.RaisePowerChanged();
+            EventBus.RaiseRestartsChanged();
+            return true;
         }
 
         // --- Pets ---

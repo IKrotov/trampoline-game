@@ -15,8 +15,13 @@ namespace _Game.Code.Scripts
         [SerializeField] private UIPlayerPets _playerPets;
         [SerializeField] private UIGymProgressBar _gymProgressBar;
         [SerializeField] private UIDonateShop _donateShop;
-        
+        [SerializeField] private UIRebirthPopup _rebirthPopup;
+        [SerializeField] private UISettingsPopup _settingsPopup;
+
         private bool _isPlayerPetsOpen = false;
+        private bool _isDonateShopOpen = false;
+        private bool _isRebirthPopupOpen = false;
+        private bool _isSettingsPopupOpen = false;
 
         private void Start()
         {
@@ -79,8 +84,38 @@ namespace _Game.Code.Scripts
 
         public void HideEggShop() => _eggShop.gameObject.SetActive(false);
 
+        public void HandleDonateShopButton()
+        {
+            if (_isDonateShopOpen) HideDonateShop();
+            else ShowDonateShop();
+
+            _isDonateShopOpen = !_isDonateShopOpen;
+        }
+
         public void ShowDonateShop() => _donateShop.gameObject.SetActive(true);
         public void HideDonateShop() => _donateShop.gameObject.SetActive(false);
+
+        public void HandleRebirthPopupButton()
+        {
+            if (_isRebirthPopupOpen) HideRebirthPopup();
+            else ShowRebirthPopup();
+
+            _isRebirthPopupOpen = !_isRebirthPopupOpen;
+        }
+
+        public void ShowRebirthPopup() => _rebirthPopup.gameObject.SetActive(true);
+        public void HideRebirthPopup() => _rebirthPopup.gameObject.SetActive(false);
+
+        public void HandleSettingsPopupButton()
+        {
+            if (_isSettingsPopupOpen) HideSettingsPopup();
+            else ShowSettingsPopup();
+
+            _isSettingsPopupOpen = !_isSettingsPopupOpen;
+        }
+
+        public void ShowSettingsPopup() => _settingsPopup.gameObject.SetActive(true);
+        public void HideSettingsPopup() => _settingsPopup.gameObject.SetActive(false);
 
         public void HandlePlayerPetsButton()
         {

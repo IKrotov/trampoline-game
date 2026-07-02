@@ -5,10 +5,8 @@ using UnityEditor;
 
 public class FenceWall : MonoBehaviour
 {
-    [SerializeField] private float length = 25f;
+    [SerializeField] private int count = 10;
     [SerializeField] private GameObject segmentPrefab;
-    [Tooltip("Ширина одного сегмента. 0 = авто из меша")]
-    [SerializeField] private float segmentWidth = 0f;
 
 #if UNITY_EDITOR
     private bool _queued;
@@ -33,25 +31,26 @@ public class FenceWall : MonoBehaviour
 
         if (segmentPrefab == null) return;
 
-        float sw = segmentWidth > 0f ? segmentWidth : DetectWidth();
+        float sw = DetectWidth();
         if (sw <= 0f) { Debug.LogWarning("FenceWall: не удалось определить ширину сегмента"); return; }
 
-        int count = Mathf.Max(1, Mathf.RoundToInt(length / sw));
-        float spacing = length / count;
-
-        for (int i = 0; i < count; i++)
+        int n = Mathf.Max(1, count);
+        for (int i = 0; i < n; i++)
         {
             var go = Instantiate(segmentPrefab, transform);
             go.name = $"Seg_{i}";
-            go.transform.localPosition = new Vector3(spacing * i, 0f, 0f);
+            go.transform.localPosition = new Vector3(sw * i, 0f, 0f);
             go.transform.localRotation = Quaternion.identity;
         }
     }
 
     private float DetectWidth()
     {
-        var mf = segmentPrefab.GetComponentInChildren<MeshFilter>();
-        if (mf == null || mf.sharedMesh == null) return 0f;
-        return mf.sharedMesh.bounds.size.x * mf.transform.lossyScale.x;
+        var temp = Instantiate(segmentPrefab);
+        float width = 0f;
+        foreach (var r in temp.GetComponentsInChildren<MeshRenderer>())
+            width = Mathf.Max(width, r.bounds.size.x);
+        DestroyImmediate(temp);
+        return width;
     }
 }

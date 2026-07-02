@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 _offset = new Vector3(0f, 5f, -7f);
     [SerializeField] private float _smoothSpeed = 5f;
     [SerializeField] private float _rotationSpeed = 3f;
+    [SerializeField] private float _minPitch = -80f;
 
     private float _yaw;
     private float _pitch;
@@ -29,7 +30,7 @@ public class CameraFollow : MonoBehaviour
             Vector2 delta = Mouse.current.delta.ReadValue();
             _yaw   += delta.x * _rotationSpeed * Time.deltaTime * 100f;
             _pitch -= delta.y * _rotationSpeed * Time.deltaTime * 100f;
-            _pitch  = Mathf.Clamp(_pitch, -80f, 80f);
+            _pitch  = Mathf.Clamp(_pitch, _minPitch, 80f);
         }
 
         _currentYaw   = Mathf.Lerp(_currentYaw,   _yaw,   _smoothSpeed * Time.deltaTime);
